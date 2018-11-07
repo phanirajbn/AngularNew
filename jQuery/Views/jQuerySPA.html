@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee SPA App</title>
+	<script src="../Lib/jquery.min.js"></script>
+	<script src="../Scripts/spa.js"></script>
+	<script type="text/javascript">
+		var db = new empRepository();
+		function saveRec(){
+			var id = $("#txtId").val();//extracting the values....
+			var name = $("#txtName").val();//extracting the values....
+			var address = $("#txtAddress").val();//extracting the values....
+			//create an emp object
+			var temp = new emp(id, name, address);
+			try{
+				db.update(temp);
+				alert("Data is saved in the store");
+			}catch{
+				alert("Opps!! Some thing happened");
+			}
+			hideAll();
+		}
+
+		function populateTable() {
+			$("table").find("tr:gt(0)").remove();
+			var data = db.getAll();
+			$.each(data, function(index, value){
+				var row = '<tr><td>' + value.id + "</td><td>";
+				row += value.name +	"</td><td>";
+				row += value.address +	"</td><td>";
+				row += "<a href='#' class='edit'>Edit</a></td></tr>";
+				$("table").append(row);
+			})
+
+			$(".edit").click(function(){
+				hideAll();
+				showDiv(2);
+                var id = $(this).parent().siblings("td:eq(0)").text();
+                var name = $(this).parent().siblings("td:eq(1)").text();
+                var address = $(this).parent().siblings("td:eq(2)").text();
+                $("#txtName").val(name);
+                $("#txtId").val(id);
+                $("#txtAddress").val(address);
+                $("#btnSave").click(saveRec);
+			})
+		}
+		function hideAll(){
+			$("div:gt(0)").slideUp(1000);
+		}
+		function showDiv(index){
+			$("div:eq(" + index +")").slideDown(1000);
+		}
+		$(document).ready(function(){
+			hideAll();
+			$("a:eq(0)").click(function(){
+				showDiv(1);
+				populateTable();
+			})
+			$("a:eq(1)").click(function(){
+				showDiv(3);
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>Employee Info System</h1>
+	<div>
+		<a href="#">Show Employees</a>
+		<a href="#">Add New Employee</a>
+	</div>
+	<div>
+		<h1>List of employees with us</h1>
+		<table border="1">
+			<tr>
+				<th>Employee ID</th>
+				<th>Employee Name</th>
+				<th>Employee Address</th>
+				<th>Options</th>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<h1>Editing the details</h1>
+		<p>Emp ID:<input type="text" id="txtId"></p>
+		<p>Name:<input type="text" id="txtName"></p>
+		<p>Address:<input type="text" id="txtAddress"></p>
+		<p><button id="btnSave">Save changes</button></p>
+	</div>
+	<div>
+		<h1>Adding new Record</h1>
+		<p>Name:<input type="text"></p>
+		<p>Address:<input type="text"></p>
+		<p>Salary:<input type="text"></p>
+		<p><button>Add</button></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selecting by ID</title>
+	<script src="../Lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		function storeRec(){
+			var name = $("#txtName").val();	
+			var address = $("#txtAddress").val();	
+			var salary = $("#txtSalary").val();
+			var data = {name:name, address:address, salary:salary};
+			localStorage.setItem("data", JSON.stringify(data));
+			alert("Data is saved to the database");
+			$("div:eq(1)").fadeOut(2000);	
+		}
+			$(document).ready(function(){
+				$("div:gt(0)").hide(2000);
+				$("a:first").click(function(){
+					$("div:first").next().show(2000);
+					$("button:first").click(storeRec);
+				})
+				$("a:first").next().click(function(){
+					$("div:eq(2)").show(2000);
+					var data = JSON.parse(localStorage.getItem("data"));
+					var text = "The Name: " + data.name;
+					text += "<br>Address: " + data.address;
+					text += "<br>Salary: " + data.salary;
+					$("div:last").append(text);//innerHTML
+					//$("div:last").text(text);//innerText
+				})
+			})
+	</script>
+</head>
+<body style="text-align: center;">
+	<h1>jQuery Tutorial</h1>
+	<div>
+		<a href="#">Register</a>
+		<a href="#">Show Details</a>
+	</div>
+	<div>
+		<h1>Register</h1>
+		<p>Name:<input type="text" id="txtName"></p>
+		<p>Address:<input type="text" id="txtAddress"></p>
+		<p>Salary:<input type="text" id="txtSalary"></p>
+		<button>Submit</button>
+	</div>
+	<div id="divDisplay">
+		<h1>Details</h1>
+	</div>
+</body>
+</html>

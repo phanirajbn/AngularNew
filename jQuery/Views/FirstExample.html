@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+	<div>
+		<h1>jQuery Examples</h1>
+		<p>jQuery is a library for developing User interactive Web pages by using APIs of the library written in JS to manipulate DOM elements in simple and less code over the regular JS. 
+	</div>	
+	<div>
+		<h1>jQuery Examples</h1>
+		<p>jQuery is a library for developing User interactive Web pages by using APIs of the library written in JS to manipulate DOM elements in simple and less code over the regular JS. 
+	</div>	
+	<div>
+		<h1>jQuery Examples</h1>
+		<p>jQuery is a library for developing User interactive Web pages by using APIs of the library written in JS to manipulate DOM elements in simple and less code over the regular JS. 
+	</div>
+
+<script src="../Lib/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("div:first").mouseover(function(){$(this).css("background-color","orange")})
+		$("div:eq(1)").mouseover(function(){$(this).css("background-color","white")})
+		$("div:last").mouseover(function(){
+			$(this).css("background-color", "green");
+		})
+		/*$("div").mouseleave(function(){
+			$(this).css("background-color", "white");	
+		})*/
+	})
+</script>
+</body>
+</html>

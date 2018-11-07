@@ -1,0 +1,9 @@
+jQuery is a library for manipulating DOM elements in HTML using JS. It contains helper functions in the form of selectors with which we could select one or more elements within the HTML doc with an easy to use syntax and perform manipulations with little or less effort. The code will be minimized quite well if U R using jQuery. 
+jQuery can be downloaded in a minified form with different versions. U could choose any version above 3.x.
+We recomend to allow the App to access the CDN Network Servers in the cloud to download at runtime and access the jQuery. With these servers, the App will download the jQuery from the nearest available server in the Internet. if one application has already downloaded a jQuery file, other applications will try to use it without a need to download again. Commonly used servers are MS, Google, jQuery.com and many more...
+
+jQuery library or object is represented by $. The $ takes an arguement which would be selector of any DOM element within the Page. The selectors play a important part of the jQuery based Application. U can select a document, any element by its Tag name, by its ClassName or by its Id.... 
+jQuery is simply an extended Javascript which contains simplified syntax and functions for manipulating DOM elements. 
+document.ready is a function that will be invoked by the DOM when the document is completly loaded into the Browser. It would be an ideal place to start Ur Page's jQuery code. The ready function takes an arg of a callback function which could be done thro an anonymous method that defines what needs to be done if the doc is loaded into the browser object. 
+
+if U R selecting an element by its iD, u should prefix the selector with #. If an element's name is xyz, UR selector should be $("#xyz")

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="../Lib/jquery.min.js"></script>
+	<script type="text/javascript">
+		var url = 'http://localhost:3333/phpDac/restDBservice.php';
+		$(document).ready(function(){
+			$.get(url, function(data){
+				//data is what U got from the restService...
+				$.each(data, function(index, value){
+					var row = '<tr><td>' + value.empId + "</td>";
+					/*row += '<td>' + value.empName + "</td>";
+					row += '<td>' + value.empAddress +"</td>";*/
+					row += '<td><a href="#" class="edit">Fetch</a></td></tr>';
+					$("table").append(row);
+				})
+				$(".edit").click(function(){
+					var id = $(this).parent().siblings("td:eq(0)").text();
+					let tempurl =url + "?id=" + id;
+					$.get(tempurl, function(data){
+						//alert(JSON.stringify(data));
+						$("#spID").text(data[0].empId)//p, span, div, td etc....
+						$("#txtname").val(data[0].empName);//for input types
+						$("#txtaddress").val(data[0].empAddress);
+					})
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<table border="1" style="display:inline-block;">
+		<tr>
+			<th>Employee ID</th>
+			<th>Editing Options</th>
+		</tr>
+	</table>
+	<div style="display:inline-block;width: 45%; border: 1px solid red;vertical-align: top">
+		<p>Employee ID:<span id="spID"></span></p>
+		<p>Employee Name: <input type="text" id="txtname"></p>
+		<p>Employee Address: <input type="text" id="txtaddress"></p>
+	</div>
+</body>
+</html>
