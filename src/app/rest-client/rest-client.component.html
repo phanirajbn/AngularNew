@@ -1,0 +1,25 @@
+<div>
+	<table border="1" width="50%" style="display:inline-block;">
+		<tr>
+			<th>Employee ID</th>
+			<th>Employee Name</th>
+			<th>Employee Address</th>
+			<th>Options</th>
+		</tr>
+		<tr *ngFor="let emp of data">
+			<td>{{emp.empId}}</td>
+			<td>{{emp.empName}}</td>
+			<td>{{emp.empAddress}}</td>
+			<td>
+				<a href="#">Edit</a>
+				<a href="#">X</a></td>
+		</tr>
+	</table>
+</div>
+<div>
+		<h2>Add a new record</h2>
+	<p><input type="text" placeholder="Enter the ID" [(ngModel)]="valueId"></p>
+	<p><input type="text" placeholder="Enter the Name" [(ngModel)]="valueName"></p>
+	<p><input type="text" placeholder="Enter the Address" [(ngModel)]="valueAddr"></p>
+	<p><button (click)="insertRec()">Save changes</button></p>
+</div>
