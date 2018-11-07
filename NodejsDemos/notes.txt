@@ -1,0 +1,71 @@
+NodeJs?
+Its a platform for developing JS apps on server side. Nodejs is nothing but JS running without a browser. It works on the Google Chrome's V8 Engine to execute the Node environment, in other words, it provides the features of Chrome browser in a command prompt. 
+With these features, Nodejs is used as a backend Webserver, there by opening up on lots of new things which JS didnt do earlier. Being a robust environment, U could have all the features of a typical programming language which includes FileIO, DB operations, User interactions and many more incorporated in JS itself instead of any other server side technology. 
+With this, everything end-to-end applications can be developed in JS only, MEAN stack: In this App architecture, everything would be on JS: MongoDB, a database based on JS where Data is stored in the form of JS collections, Express is a module in Nodejs for creating Server components, Angular would be the framework for developing Client side code and NodeJs would the server. With this stack, U dont need any other programming language and everything is now developed in JS only which is one the most light weight programming structures.
+Lots of Apps are developed and lots of Organizations are using nodejs in one form or the other. Paypal, Uber, NetFlix are using Nodejs since its inception. 
+
+Why NodeJs?
+ Its super fast and highly scalable environment.
+ Builds faster than most of its server side counterparts. 
+ Does not need any 3rd party web server like Apache, IIS and WebSphere for creating Web Applications, Nodejs itself can create a Web server for you. 
+ It has got 2x requests/sec which means the speed of the processing the requests made to the server is twice the speed of its other web servers. 
+ JS will be made everywhere: frontend, middleware and backend will be JS there by making the App more light weight and faster in execution as there will be no language switching anywhere.
+ PS: Nodejs is not here to replace the fat servers like Apache and IIS as they have their own benefits and robustness suited for developing rich ERP kind of Applications with large databases networking.  
+
+How nodejs Apps are created?
+Apps are scaled down to light simple and small self sustaining components called modules. each node module contains one or more classes, functions and other programming constructs that is self dependent and mostly without a need of external dependencies. These modules are exposed and used by other JS files(similar to include) and consumed. 
+These modules can be placed in cloud repositories similar to github. NodeJs itself has such repository called NPM(Node Package Manager) which is a repository of many such nodejs modules that can be used with free license for App development. This NPM is one of the world's largest reusable Code repositories available. 
+Applications will include these modules and consume them. 
+NodejS modules are of 2 types: the Core modules provided by the Nodejs which is part of every installation in the machine. 
+Over and above, U have thousands of external modules that can be downloaded under free license from the npm and used. 
+
+How it works?
+It uses the V8 JS engine from chrome which is a single threaded environment. Every requests will handled asynchronously. It uses thread pool concept where there are threads available in the V8 Engine that is used to handle the requests asychronously. 
+
+Who developed it and who maintains it?
+Developed by Ryan Dahl, an employee of Joyant Technologies, who invented it and it is now maintained by the same organization he worked(Joyant). U can download the Nodejs from the Nodejs.org website. U can download the version of the NodejS based on the OS U R working with. It could be installed in Linux, Windows and Mac Environments.  
+
+What kind of Apps U can develop in Nodejs?
+Single Page Apps
+Streaming data from external hardware devices into UR Apps.
+Iot Applications.n 
+Rest services in the form JSON APIs. 
+
+What U dont wish to develop in NodeJs?
+Simple CRUD HTML Apps dont need NodeJs, U could do this on any other server side technologies like php, ASP.net etc. 
+CPU Heavy dependent Apps cannot be built in NodejS(Kernal objects and so forth).
+
+How to develop Apps in Nodejs?
+NodejS apps run on Command prompt. U create classes, modules, functions in jS files and run them thro the Node Command prompt. All Node Apps need modules that can be reused in different files of JS. If U want to use one or more functions created in JS files in other JS files, U should export those functions in the form of modules, and modules are imported by the JS files and consumed. 
+
+Creating module:
+module.exports is an object used to create components of the module. Its shorter format is exports. module.exports == exports. 
+U could create 2 types of modules: named modules and anonymous modules. 
+named modules allows to create one or more components like multiple classes, properties, functions and other components of JS program...
+If a module does not have any name, its called as Anonymous module. If the exports is set with a name, its called as named module...
+modules are refered in client js files using require method. 
+
+What is npm?
+Node package manager is a repository of external modules of Nodejs with relevent licences that can be consumed by other Nodejs programmers. U can install all the required modules thro npm command. npm is installed along with nodejs when it installed for the first time. 
+
+npm allows to install new packages only ur app is a valid nodejs App. It means that U should have a package.json file that contain the configuration of the Application. package.json could be created by URSelf or using the npm init wizard which will walk through the file creation steps. Alternatively U could create a default package.json by adding an option -y(yes).Command: npm init -y will create a default package.json, without -y will walkthrough the steps of file creation. 
+
+express uses get,post, delete and put functions to process the requests made by the user using the HTTP verbs. 
+when a data is posted, U need a body-parser which parses the body content and injects the body object into the req object, which will be used while we process the post operation of the http request.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

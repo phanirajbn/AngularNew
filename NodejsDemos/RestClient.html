@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var url = "http://localhost:1234/";
+		function addRecord() {
+			var emp = {};//create an object...
+			emp.empId = $("#txtId").val();
+			emp.empName = $("#txtName").val();
+			emp.empAddress = $("#txtAddr").val();
+			$.post(url, emp, function(data){
+				alert(data);
+			})
+		}
+
+		function deleteRecord() {
+			//jQuery does not have helper functions .delete or .put. It has only get and post.. So for other HTTP VERBS, U should use the old syntax of $.ajax({}) that takes a JSON object as arg...
+			var id = prompt("Enter the ID of the Employee to delete");
+			var delUrl = url + id; 
+			$.ajax({
+				method:"DELETE",
+				url:delUrl,
+				error: function(e){
+					console.log(e)
+				},
+				success:function(data){
+					alert(data);
+				}
+			});
+		}
+		$(document).ready(function(){
+			$.get(url, function(data){
+				var objects = JSON.parse(data);
+				$.each(objects, function(index, value){
+					$("ul").append("<li>" + value.empName+"</li>");
+				})
+			})
+			$("button:eq(0)").click(addRecord);
+			$("#btnDelete").click(deleteRecord);
+		})
+	</script>
+</head>
+<body>
+	<div>
+		<ul style="list-style: none">
+
+		</ul>
+	</div>
+
+	<div>
+		<p><input type="number" id="txtId" placeholder="Enter ID"></p>
+		<p><input type="text" id="txtName" placeholder="Enter Name"></p>
+		<p><input type="text" id="txtAddr" placeholder="Enter Address"></p>
+		<p><button>Submit</button></p>
+	</div>
+	<div>
+		<h1>Deleting record</h1>
+		<button id="btnDelete">Delete Record</button>
+	</div>
+
+</body>
+</html>
