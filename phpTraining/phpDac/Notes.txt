@@ -1,0 +1,40 @@
+php: HyperText Processor is a programming language used for developing server side web applications. Simple and easy to develop Web pages. Most of the Web Apps in Open source is developed using php. Php can be developed on any OS of UR choice including Windows, linux and Mac machines. 
+php is a server side technology for building dynamic web content. U can work with files, databases, and perform all kinds of System related operations that can be executed on a Browser. Chatting Apps which does IPC as well normal Web Applications that store the data to a Database/file system can be developed using php. 
+While Php is developed, programers usually use stack based development.
+WAMP(Windows, Apache, MySql and PHP) is the stack for developing php on Windows Platform. use this url for downloading the required packages:http://www.wampserver.com/en/
+
+LAMP(Linux, Apache, MySql and PHP)is used for developing linux based platform.
+XAMP(xOS, , Apache, MySql and PHP) is used for developing on Mac based platform.
+U choose the platform and the required stack is available for development. 
+We will be using WAMP to develop the php based Applications...
+WAMP server allows U to install even MySQL Database. This is currently owned by Oracle but was initially an Open source product. U can still use MySql installation for performing  Simple Data centric Applications, but for commercial use, U could go for the professional licence which contain better infrastructure like Reporting services, Data Managers and many more.
+Php Stack allows Ur pages to be created in a sp folder called www found in its directory. U should have admin rights to access this directory. All files and folders required for UR Application development will happen in this folder. 
+
+how PHP pages are processed?
+When a page is requested from the browser, an HTTP object gets created for U. This object is responsible for interacting bw the server and the Client machine. The URL requested will have 2 parts: protocol and the address:
+Http Protocol determines to create an HTTP object, Each Httpobject is a stateless object, which means that it does not hold any information about itself once a cycle of activity happens. Any info afterwards will not be available with it.  
+HTTP object contains the following objects in it: 
+Request: Contain the info about the Request and the data that U want to read or store
+Response: Outcome of the Server when a request is made.
+Context: Contains the reference of the HTTP object itself which can be used to perform complex operations like IPC and data sharing.
+Session: Unique interaction bw the browser instance and the Web server. This is created for the very first time when the User makes a request with that instance of the browser.
+Application: An object that store info about all the users
+Error: Info about an Exception that is raised by the HTTP object and Server: Representation of the Web server thro which U could create new objects in the server(ActiveX controls, plugins) as well as get info about the server. 
+When the locator identifies the Address which is said to be unique across the domain where the client is working, the Server will look for the folder that U have requested. When the page is not found, it returns an HTTP error object. If found, the php component will look for that section of the tag with <?php ?> and processes it. The final output of the php page will be an HTML output and that html with the existing static html will be combined and returned as a RESPONSE to the Request U have made. This is how HTTP processes UR Request for which U get either a Response object or an appropriate HTTP error object.
+
+ When a form is submited to the server for processing U have 2 ways to send the data: POST and GET. 
+ POST will send the information thro a HTTPPOST object which can be accessed in php using $_POST. It is an Array thro which we could use the [] operator to access the element data represented by name property.....
+
+Data Types:
+Basic data types: whole numbers, float, strings and booleans. U can also create UR Custom data types like Classes and Objects. If U want to create variables but wish to set the value later, U could assign it to null which means that the variable exists but does not contain any value. 
+All the std operators of arithematic operations are supported in php. All the std escape sequences are supported in php that include \n, \t etc. 
+If U want to create composite data types, then U can create Classes and use them as objects. 
+For collections of data U have arrays that can store large no of data of the same type. Arrays provide a convinient way of storing the data of the same type as well perform operations common to all.
+php supports 2 types of Arrays: normal single value arrays as well as dictionary kind of arrays(Key-Value pairs);
+
+If U want to share the data among multiple pages/requests of the Application specific to the user, U can store the data in the form of SESSION. Sessions are created as soon as the browser instance makes the first hit to the server. Even before any of the classes are loaded into the App process, the session would have started. 
+Session data can be removed in 2 ways:
+session_unset will reset all the variables where as the session_destroy will abandon the session, there by deleting all the session info pertained to the user at that instance. 
+
+ 
+

@@ -1,0 +1,11 @@
+php: HyperText Processor is a programming language used for developing server side web applications. Simple and easy to develop Web pages. Most of the Web Apps in Open source is developed using php. Php can be developed on any OS of UR choice including Windows, linux and Mac machines. 
+php is a server side technology for building dynamic web content. U can work with files, databases, and perform all kinds of System related operations that can be executed on a Browser. Chatting Apps which does IPC as well normal Web Applications that store the data to a Database/file system can be developed using php. 
+While Php is developed, programers usually use stack based development.
+WAMP(Windows, Apache, MySql and PHP) is the stack for developing php on Windows Platform. use this url for downloading the required packages:http://www.wampserver.com/en/
+
+LAMP(Linux, Apache, MySql and PHP)is used for developing linux based platform.
+XAMP(xOS, , Apache, MySql and PHP) is used for developing on Mac based platform.
+U choose the platform and the required stack is available for development. 
+We will be using WAMP to develop the php based Applications...
+WAMP server allows U to install even MySQL Database. This is currently owned by Oracle but was initially an Open source product. U can still use MySql installation for performing  Simple Data centric Applications, but for commercial use, U could go for the professional licence which contain better infrastructure like Reporting services, Data Managers and many more.
+Php Stack allows Ur pages to be created in a sp folder called www found in its directory. U should have admin rights to access this directory. All files and folders required for UR Application development will happen in this folder. 
