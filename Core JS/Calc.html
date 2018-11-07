@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="Scripts/Calc.js"></script>
+	<script>
+		var first, second, operand, result;
+		var myPrev = new calcHistory();
+		window.addEventListener('load', function(){
+			document.getElementById('btnSubmit').addEventListener('click', function(){
+			first = parseFloat(document.getElementById('first').value);
+			second = parseFloat(document.getElementById('second').value);
+			operand = document.getElementById('operand').value;
+			var op = new operation(first, second, operand);
+			op.operate();
+			document.getElementById('result').innerText = op.result;
+			debugger;
+			myPrev.addList(op);
+			var latest = myPrev.getAll();
+			var p = document.getElementById('pHistory');
+			p.innerHTML ="";
+			latest.forEach(function(res){
+					p.innerHTML += '<p>' + res.firstValue + "   " + res.operand + "   " + res.secondValue + "  =" + res.result + "<br/>";
+				})
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>Math Calc Program</h1>
+	<div>
+		<input type="number" id="first" placeholder="Enter v1"/>
+		<select id="operand">
+			<option>====</option>
+			<option>+</option>
+			<option>-</option>
+			<option>X</option>
+			<option>/</option>
+		</select>
+		<input type="number" id="second" placeholder="Enter v2"/>
+		<button id="btnSubmit">=</button>
+		<span id="result"/>
+	</div>
+	<div>
+		<h3>Previous operations</h3>
+		<div id="pHistory">
+		</div>
+	</div>
+</body>
+</html>

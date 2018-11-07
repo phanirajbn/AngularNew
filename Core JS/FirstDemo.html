@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First JS code</title>
+</head>
+	<style>
+	 span{
+	 	color:indianRed;
+	 	font-weight: bolder;
+	 }
+	</style>
+	<script type="text/javascript">
+		function init(){
+			//When should this script execute...
+		var tBox = document.getElementById('txtName');
+		console.log(tBox)
+		var btn = document.getElementById('btnSubmit');
+		btn.addEventListener('click', function(){
+			var nameEntered = tBox.value;
+			var darea = document.getElementById('divDisplay');
+			var text = 'The Name entered is <b>' + nameEntered +'</b>';
+			darea.innerHTML = text;	
+		})
+		}
+		window.addEventListener('load', init);//load will be invoked when the whole page is displayed in the browser. 
+	</script>
+<body>
+	<div>
+		<label>Enter the Name please:</label>
+		<input type="text" id="txtName" placeholder="Name here"/>
+		<button id="btnSubmit">Submit</button>
+		<span id="spNameError"></span>
+	</div>
+	<div id="divDisplay">
+
+	</div>
+</body>
+</html>

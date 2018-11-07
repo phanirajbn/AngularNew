@@ -1,0 +1,26 @@
+*{
+	margin: 5px;
+	padding: 5px;
+	color:blue;
+	background-color: lightblue;
+	vertical-align: top;
+}
+h1{
+	text-align: center;
+}
+
+.list{
+	display: inline-block;
+	width: 25%;
+}
+.table{
+	display: inline-block;
+	width: 25%;
+}
+.edit{
+	display: inline-block;
+	width: 25%;
+}
+.billing{
+
+}

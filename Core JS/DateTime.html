@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Date and Time</title>
+</head>
+<body>
+	<input type="date" id="dt" placeholder="Enter the date">
+	<p id='pDisplay'>
+
+	</p>
+<script type="text/javascript">
+	function display(){
+		var currDate = new Date();//Gets the current date and time of the device that U R reading the Document...
+		var p = document.getElementById('pDisplay');
+		p.innerText = currDate;//Displays both date and time
+		//Extracts the specific components of the Date object...
+		p.innerText += currDate.getHours() +":";
+		p.innerText += currDate.getMinutes() +":";
+		p.innerText += currDate.getSeconds();
+
+		//User is providing the input from an input box.
+		var userDate = new Date(document.getElementById('dt').value);
+		p.innerText +="<br/>The User year is " + userDate.getUTCFullYear();
+		p.innerText +="<br/>The User Month is " + (userDate.getMonth() +1);
+		p.innerText +="<br/>The User Day is " + userDate.getDate();
+	}
+	window.addEventListener('click', function(){
+		display();
+	})
+</script>
+</body>
+</html>

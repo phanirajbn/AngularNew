@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<style type="text/css">
+		div{
+			border: 2px solid red; 
+			width: 50%;
+			padding: 5px;
+			margin: 5px;
+		}
+		span{
+			padding: 5px;
+			margin: 5px;
+			color:red;
+			font-weight: bold;	
+		}
+	</style>
+</head>
+<script type="text/javascript">
+	function validateMe() {
+		var uName = document.regForm.name.value;
+		var uPwd = document.regForm.pwd.value;
+		var age = document.regForm.age.value;
+
+		if(uName ==null || uName == ""){
+			document.getElementById('spErrName').innerText ="Name must be entered";
+			return false;
+		}else if(uPwd ==null || uPwd == ""){
+			document.getElementById('spErrPwd').innerText ="Password must be entered";
+			return false;
+		}else if(uPwd.length < 6){
+			document.getElementById('spErrPwd').innerText ="Password must be atleast 6 charecters";
+			return false;
+		}else if(isNaN(age)){
+			document.getElementById('spErrAge').innerText ="Age must be a number";
+			return false;
+		}else if(age < 18){
+			document.getElementById('spErrAge').innerText ="Age must be above 17 years...";
+			return false;
+		}
+
+		return true;
+	}
+	function removeErr() {
+		document.getElementById('spErrAge').innerText="";
+	}
+</script>
+<body>
+	<form name="regForm" action="register.php" method="POST" onsubmit="return validateMe()">
+		<div>
+			<h3>Validate UR Credentials</h3>
+			<p>Name: <input type="text" name="name"><span id="spErrName"/></p>
+			<p>Password: <input type="Password" name="pwd"><span id="spErrPwd"/></p>
+			<p>Age: <input name="age" onchange="removeErr()"><span id="spErrAge"/></p>
+			<input type="submit" value="Login">
+		</div>
+	</form>
+</body>
+</html>

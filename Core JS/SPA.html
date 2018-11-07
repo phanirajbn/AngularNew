@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SPA App</title>
+	<link rel="stylesheet" type="text/css" href="Styles/main.css">
+	<script src="Scripts/Cart.js"></script>
+	<script type="text/javascript">
+		var app = new cart();//Creating the object from the prototype...
+		var selectedItem = null;
+
+		function populateTable(){
+			$('tblRecords').innerHTML ='<tr><th>Name</th><th>price</th><th>Quantity</th></tr>';
+			var records = app.getAll();
+			for (var i = 0; i < records.length; i++) {
+				var r = '<tr><td>' + records[i].name+'</td><td>';
+				r += records[i].price +'</td><td>';
+				r += records[i].quantity +'</td></tr>';
+				$('tblRecords').innerHTML += r;
+			}
+		}
+		function init(){
+			var mlist = app.getMasterList();
+			mlist.forEach((item)=>{
+				$('lstItems').innerHTML += '<li>' + item.name + "<a class='select' href='#'>Select</a></li>";
+			})
+			$classAction('select', function(){
+					var name = this.parentNode.innerText.replace('Select','');
+					var item = app.find(name);
+					selectedItem = item;
+					$('spId').innerText = item.id;
+					$('spName').innerText = item.name;
+					$('spPrice').innerText = item.price;
+			})
+
+			$click('btnCart', ()=>{
+				selectedItem.quantity = $('txtQuantity').value;
+				app.addNewItem(selectedItem);
+				populateTable();
+			})
+
+			$click('btnBill', ()=>{
+				var bill = app.generateBill();
+
+			})
+		}
+		window.addEventListener('load', init);
+	</script>
+</head>
+<body>
+	<h1>Welcome to JS programming</h1>
+	<div>
+		<a href="#">Show All</a>
+		<a href="#">Add New Employee</a>
+		<a href="#">Clear All</a>
+	</div>
+	<div class="list">
+		<h1>List of Products with us</h1>
+		<ul id="lstItems">
+		</ul>
+	</div>
+	<div class="table" id="divTable">
+		<h1>List of items in the cart</h1>
+		<table id="tblRecords"></table>
+		<button id="btnBill">Billing</button>
+	</div>
+	<div id="divEdit" class="edit">
+		<h1>Editing the details of the item</h1>
+		<div>
+			<span id="spId"></span>
+			<span id="spName"></span>
+			<select id="txtQuantity">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<span id="spPrice"></span>
+				<button id="btnCart">Add To Cart</button>
+		</div>
+	</div>
+	<div id="divBill">
+		<h1>Final bill of the Cart</h1>
+		<p>Total Items:<span id="spTotal"></span></p>
+		<p>Total Amount:<span id="spTotalAmount"></span></p>
+	</div>
+</body>
+</html>

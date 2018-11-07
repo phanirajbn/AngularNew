@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basics of JS coding</title>
+</head>
+<script src="Scripts/Objects.js"></script>
+<body>
+<div id="area">
+	
+</div>
+<script type="text/javascript">
+	"use strict";//New in ES5 onwards, but for old applications U should not set this as they dont understand the strict keyword. 
+	var fruit = "Apple";
+	var empID = 123;
+	var obj = null;
+	//student = "Ramesh";//U need not even use var for declaring in Javascript. if Used with strict, then the programmers are forced to declare the variables using var before using them in the Application. 
+	var student ="Ramesh";
+	var div = document.getElementById('area');
+	/*area.innerHTML = typeof(fruit) +'<br/>';
+	area.innerHTML += typeof(empID) +'<br/>';
+	area.innerHTML += typeof(student) +'<br/>';
+	area.innerHTML += typeof(obj) +'<br/>';*/
+	area.innerHTML += typeof(emp) +'<br/>';
+	area.innerHTML += emp +'<br/>';
+
+	for(var prop in emp){
+		area.innerHTML += "PropName: " + prop + "<br/>Value: " + emp[prop] + '<br/>';
+	}
+	alert("123" === 123);
+
+</script>
+</body>
+</html>

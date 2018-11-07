@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var data =[];//syntax of creating Array...
+	function insertElements() {
+		data.push(123);//adds the item to the bottom of the list.
+		data.push(124);
+		data.push(125);
+		data.push(126);
+		data.push(127);
+	}
+	insertElements();
+	function displayAll(){
+		var info = "";
+		for(var i = 0; i < data.length; i++){
+			info += data[i]+" ";
+		}
+		alert(info);//Display in one line
+	}
+	displayAll();
+
+	//Other Examples of Array
+	var fruits = ['Apple','Mango', 'Orange'];//creating a literal array...
+	/*for(let i = 0, length1 = fruits.length; i < length1; i++){
+		console.log(fruits[i]);
+	}*/
+
+	fruits.forEach(function(rec){
+		alert(rec);//rec represents the element of the array
+	})//Iterating thro a foreach Statement in JS.....
+	//forEach is a method of the Array object used to iterate thro the array... 
+</script>
+</body>
+</html>
