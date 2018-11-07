@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rest Client</title>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  	var url = 'http://localhost:8080/arrisApp/restService.php';
+  	function populate(){
+  		$("table").find("tr:gt(0)").remove();
+  		//rest services are async functions....
+  		$.get(url, function(data){
+  			$.each(data, function(i, e){
+  				var row = '<tr><td>' + e.empId +'</td><td>';
+  				row += e.empName +'</td><td>';
+  				row+='<a class="edit" href="#">Edit</a></td></tr>';
+  				$("table").append(row)
+  			});
+  		$(".edit").click(function(){
+  			var id = $(this).parent().siblings("td:eq(0)").text();
+  			var get = url + '?id=' + id;
+  			$.get(get, function(emp){
+  				$("#txtid").val(emp[0].empId);
+  				$("#txtname").val(emp[0].empName);
+  				$("#txtaddr").val(emp[0].empAddress);
+  				$("#txtsal").val(emp[0].empSalary);
+  			})
+  		})	
+  		});	
+  	}
+  	function insertRec() {
+  		var emp ={};
+  		emp.empId = $("#txtid").val();
+  		emp.empName = $("#txtname").val();
+  		emp.empAddress = $("#txtaddr").val();
+  		emp.empSalary = $("#txtsal").val();
+  		$.post(url, JSON.stringify(emp), function(res){
+  			alert(res.msg);
+  			populate();
+  		});
+  	}
+  	$(document).ready(function(){
+  		populate();
+  		$("button").click(insertRec)
+  	})
+  </script>
+</head>
+<body>
+	<div>
+	<table border="1">
+		<tr>
+			<td>EmpID</td>
+			<td>EmpName</td>
+			<td>Options</td>
+		</tr>
+	</table>
+</div>
+<div>
+	<p><input id="txtid" placeholder="Enter the ID"></p>
+	<p><input id="txtname" placeholder="Enter the Name"></p>
+	<p><input id="txtaddr" placeholder="Enter the Address"></p>
+	<p><input id="txtsal" placeholder="Enter the Salary"></p>
+	<p><button>Save changes</button></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
